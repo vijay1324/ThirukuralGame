@@ -1,0 +1,252 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/brownbg"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:padding="@dimen/margin10"
+        android:layout_margin="@dimen/margin5"
+        android:background="@drawable/side_nav_bar"
+        android:textStyle="bold|italic"
+        android:textColor="@color/blue"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="top"
+        android:padding="@dimen/margin15">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/profile_img"
+        android:src="@drawable/dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/gamer_name"
+            android:text="Gopalraman.A"
+            android:textColor="@android:color/holo_purple"
+            android:textStyle="bold|italic"
+            android:textSize="@dimen/header_text"
+            android:layout_gravity="center"
+            android:padding="@dimen/margin5"
+            android:layout_marginLeft="@dimen/margin15"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="High Score : "
+                    android:padding="@dimen/margin5"
+                    android:textColor="@android:color/holo_purple"
+                    android:textStyle="bold|italic"
+                    android:gravity="right"
+                    android:layout_marginRight="@dimen/margin20"
+                    android:textSize="@dimen/header_text"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/high_score_tv"
+                    android:text="0"
+                    android:padding="@dimen/margin5"
+                    android:textColor="@android:color/holo_purple"
+                    android:textStyle="bold|italic"
+                    android:gravity="right"
+                    android:layout_marginRight="@dimen/margin20"
+                    android:textSize="@dimen/header_text" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ss_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:id="@+id/llid">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        style="@style/home_page_ll"
+                        android:id="@+id/ll_aboutus">
+
+                        <Button
+                            style="@style/home_page_button"
+                            android:text="About Us"
+                            android:id="@+id/btn_aboutus"/>
+
+                        <ImageButton
+                            style="@style/home_page_img_btn"
+                            android:id="@+id/img_btn_aboutus"
+                            android:src="@drawable/icons8_about_100" />
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"/>
+                    <LinearLayout
+                        style="@style/home_page_ll"
+                        android:id="@+id/ll_play"
+                        android:layout_marginRight="@dimen/margin5">
+
+                        <ImageButton
+                            style="@style/home_page_img_btn"
+                            android:id="@+id/img_btn_play"
+                            android:src="@drawable/icons8_play_100" />
+
+                        <Button
+                            style="@style/home_page_button"
+                            android:text="Play"
+                            android:id="@+id/btn_play"/>
+                    </LinearLayout>
+                </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+
+                <LinearLayout
+                    style="@style/home_page_ll"
+                    android:id="@+id/ll_achievement">
+
+                    <Button
+                        style="@style/home_page_button"
+                        android:text="Achievements"
+                        android:id="@+id/btn_achievement"/>
+
+                    <ImageButton
+                        style="@style/home_page_img_btn"
+                        android:id="@+id/img_btn_achievement"
+                        android:src="@drawable/icons8_medal_first_place_100" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <LinearLayout
+                    style="@style/home_page_ll"
+                    android:id="@+id/ll_settings">
+
+                    <ImageButton
+                        style="@style/home_page_img_btn"
+                        android:id="@+id/img_btn_settings"
+                        android:src="@drawable/icons8_settings_100" />
+
+                    <Button
+                        style="@style/home_page_button"
+                        android:id="@+id/btn_settings"
+                        android:text="Settings"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+
+                <LinearLayout
+                    style="@style/home_page_ll"
+                    android:id="@+id/ll_leaderboard">
+
+                    <Button
+                        style="@style/home_page_button"
+                        android:text="Leader Board"
+                        android:id="@+id/btn_leaderboard"/>
+
+                    <ImageButton
+                        style="@style/home_page_img_btn"
+                        android:id="@+id/img_btn_leaderboard"
+                        android:src="@drawable/icons8_leaderboard_80" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <LinearLayout
+                    style="@style/home_page_ll"
+                    android:id="@+id/ll_help">
+
+                    <ImageButton
+                        style="@style/home_page_img_btn"
+                        android:id="@+id/img_btn_help"
+                        android:src="@drawable/ico_dok" />
+
+                    <Button
+                        style="@style/home_page_button"
+                        android:id="@+id/btn_help"
+                        android:text="Read Thirukural"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="40dp">
+
+                <LinearLayout
+                    style="@style/home_page_ll"
+                    android:id="@+id/ll_google">
+
+                    <Button
+                        style="@style/home_page_button"
+                        android:id="@+id/btn_google"
+                        android:text="Sign In"/>
+
+                    <ImageButton
+                        style="@style/home_page_img_btn"
+                        android:id="@+id/img_btn_google"
+                        android:src="@drawable/ico_google" />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+                <LinearLayout
+                    style="@style/home_page_ll"
+                    android:id="@+id/ll_share">
+
+                    <ImageButton
+                        style="@style/home_page_img_btn"
+                        android:id="@+id/img_btn_share"
+                        android:src="@drawable/icons8_share_100" />
+
+                    <Button
+                        style="@style/home_page_button"
+                        android:id="@+id/btn_share"
+                        android:text="Share"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

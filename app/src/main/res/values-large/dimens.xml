@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="header_text_tk">28sp</dimen>
+    <dimen name="sub_header_tk">25sp</dimen>
+    <dimen name="normal_text_tk">22sp</dimen>
+
+    <dimen name="header_text">30sp</dimen>
+    <dimen name="sub_header">27sp</dimen>
+    <dimen name="normal_text">20sp</dimen>
+
+    <dimen name="header_text_land">25sp</dimen>
+    <dimen name="sub_header_land">22sp</dimen>
+    <dimen name="normal_text_land">19sp</dimen>
+
+    <dimen name="header_text_big">32sp</dimen>
+    <dimen name="sub_header_big">29sp</dimen>
+    <dimen name="normal_text_big">26sp</dimen>
+
+    <dimen name="header_text_land_big">27sp</dimen>
+    <dimen name="sub_header_land_big">24sp</dimen>
+    <dimen name="normal_text_land_big">21sp</dimen>
+
+    <dimen name="nav_img_size">65dp</dimen>
+
+    <dimen name="margin10">12dp</dimen>
+    <dimen name="margin15">17dp</dimen>
+    <dimen name="margin5">7dp</dimen>
+    <dimen name="margin20">22dp</dimen>
+
+    <dimen name="popup_ss_height">450dp</dimen>
+    <dimen name="nav_header_height">180dp</dimen>
+</resources>
