@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "257146979670",
+    "firebase_url": "https://thirukural-game-36506723.firebaseio.com",
+    "project_id": "thirukural-game-36506723",
+    "storage_bucket": "thirukural-game-36506723.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257146979670:android:a277815c11a74c41",
+        "android_client_info": {
+          "package_name": "com.atsoft.thirukural.game"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "257146979670-r9iigjaesm50f7cofnk01daqteoheeep.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "257146979670-fu0nhkl99cb33vmtfadfvaksmsei0i6t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.atsoft.thirukural.game",
+            "certificate_hash": "a3f9af352b41b558a304d651a6eee1d80d0f49f3"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7UpfvxWBTT8VOluUB3AeripnV4xGqJAs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "257146979670-r9iigjaesm50f7cofnk01daqteoheeep.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

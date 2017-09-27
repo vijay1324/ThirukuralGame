@@ -12,4 +12,5 @@ public class Defs {
     public static int HighScore = 0;
     public static String currentFragment = "";
     public static boolean playSound = true;
+    public static String gamerName = "";
 }

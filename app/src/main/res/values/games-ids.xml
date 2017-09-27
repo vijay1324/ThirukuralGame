@@ -7,7 +7,6 @@ Save this file as res/values/games-ids.xml in your project.
     <!-- app_id -->
     <string name="app_id" translatable="false">257146979670</string>
     <!-- package_name -->
-    <string name="package_name" translatable="false">com.atsoft.thirukural.game</string>
     <!-- achievement SignIn -->
     <string name="achievement_signin" translatable="false">CgkI1oqe-b0HEAIQAQ</string>
     <!-- achievement High Score 10 -->
@@ -17,5 +16,4 @@ Save this file as res/values/games-ids.xml in your project.
     <!-- achievement High Score 100 -->
     <string name="achievement_high_score_100" translatable="false">CgkI1oqe-b0HEAIQBA</string>
     <!-- leaderboard High Scores -->
-    <string name="leaderboard_high_scores" translatable="false">CgkI1oqe-b0HEAIQBQ</string>
 </resources>

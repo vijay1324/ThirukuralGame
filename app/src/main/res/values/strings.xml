@@ -1,22 +1,16 @@
 <resources>
     <string name="app_name">Thirukural Game</string>
-    <string name="thirukural">உள்ளத்தால் உள்ளலும் தீதே பிறன்பொருளைக்
-        கள்ளத்தால் கள்வேம் எனல்.</string>
     <string name="t1">ஆகிய</string>
-    <string name="t2">ஆக்கம்</string>
-    <string name="t3">அளவிறந்து</string>
-    <string name="t4">பொருள்கருதிப்</string>
     <string name="dash">__________</string>
     <string name="next">Check Answer</string>
     <!--<string name="app_id">257146979670-fu0nhkl99cb33vmtfadfvaksmsei0i6t.apps.googleusercontent.com</string>-->
     <!--<string name="app_id">257146979670</string>-->
-    <string name="LeaderBoard_ID"></string>
     <!-->Ads<-->
     <string name="appId">ca-app-pub-3418152441595815~3939962555</string>
     <string name="adUnitIdVideo">ca-app-pub-3418152441595815/9489293392</string>
-
+    <string name="banner_ad_unit_id">ca-app-pub-3418152441595815/8861395981</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-3418152441595815/4866310655</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="signin_other_error">SignIn Other Error</string>
     <string name="signin_failure">SignIn Failure</string>
 </resources>

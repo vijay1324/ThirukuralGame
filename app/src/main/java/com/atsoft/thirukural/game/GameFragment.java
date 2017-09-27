@@ -30,10 +30,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.reward.RewardItem;
 import com.google.android.gms.ads.reward.RewardedVideoAd;
 import com.google.android.gms.ads.reward.RewardedVideoAdListener;
+import com.google.firebase.crash.FirebaseCrash;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -63,6 +65,7 @@ public class GameFragment extends Fragment implements View.OnClickListener, Rewa
     RelativeLayout hintll;
     private MediaPlayer mp;
     private RewardedVideoAd mAd;
+    private AdView mAdView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -88,6 +91,8 @@ public class GameFragment extends Fragment implements View.OnClickListener, Rewa
         hintCount.setText(String.valueOf(cc_hint_count));
         setQuestion();
         setTimmer(60000);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         mAd = MobileAds.getRewardedVideoAdInstance(getActivity());
         mAd.setRewardedVideoAdListener(this);
         loadRewardedVideoAd();
@@ -183,6 +188,7 @@ public class GameFragment extends Fragment implements View.OnClickListener, Rewa
         try {
             seventh.setText(token.nextToken());
         } catch (Exception e) {
+            FirebaseCrash.report(e);
             e.printStackTrace();
         }
         second.setText(dash);
@@ -259,6 +265,7 @@ public class GameFragment extends Fragment implements View.OnClickListener, Rewa
             editor.putStringSet("kural_no_set", set);
             editor.commit();
         } catch (Exception e) {
+            FirebaseCrash.report(e);
             e.printStackTrace();
         }
         return qus_kural.replace("\n", "");
@@ -287,6 +294,7 @@ public class GameFragment extends Fragment implements View.OnClickListener, Rewa
         life_img = rootView.findViewById(R.id.life_img);
         hintll = rootView.findViewById(R.id.hint_rl);
         hintCount = rootView.findViewById(R.id.noofhinttv);
+        mAdView = rootView.findViewById(R.id.adView);
         second.setOnClickListener(this);
         fourth.setOnClickListener(this);
         sixth.setOnClickListener(this);
@@ -327,6 +335,7 @@ public class GameFragment extends Fragment implements View.OnClickListener, Rewa
                             editor.putInt("hintCount", chint + 5);
                             editor.commit();
                         } catch (Exception e) {
+                            FirebaseCrash.report(e);
                             e.printStackTrace();
                         }
                     }
@@ -538,6 +547,7 @@ public class GameFragment extends Fragment implements View.OnClickListener, Rewa
                 editor.putInt("hintCount", Integer.parseInt(hintCount.getText().toString().trim()) - 1);
                 editor.commit();
             } catch (Exception e) {
+                FirebaseCrash.report(e);
                 e.printStackTrace();
             }
             if (correct_ans.contains(a1.getText().toString().trim())) {
@@ -649,7 +659,6 @@ public class GameFragment extends Fragment implements View.OnClickListener, Rewa
     public void onResume() {
         if (afterPause) {
             countDownTimer.cancel();
-            System.out.println("Syso : temp time : "+tempTime);
             setTimmer(tempTime);
             tempTime = 0;
             afterPause = false;
@@ -666,7 +675,6 @@ public class GameFragment extends Fragment implements View.OnClickListener, Rewa
     public void onPause() {
         if (adLoadFor != 1) {
             tempTime = Integer.parseInt(timmer.getText().toString()) * 1000;
-            System.out.println("Syso : temp time : "+tempTime);
             afterPause = true;
         }
         if (mp != null) {

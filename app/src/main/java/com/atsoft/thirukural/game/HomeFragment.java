@@ -27,12 +27,16 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.images.ImageManager;
 import com.google.android.gms.drive.Drive;
 import com.google.android.gms.games.Games;
 import com.google.example.games.basegameutils.BaseGameUtils;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.crash.FirebaseCrash;
 
 
 public class HomeFragment extends Fragment implements
@@ -59,6 +63,8 @@ public class HomeFragment extends Fragment implements
     int highscore = 0;
 
     SharedPreferences sharedPrefs;
+    private FirebaseAnalytics mFirebaseAnalytics;
+    private AdView mAdView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,7 +72,11 @@ public class HomeFragment extends Fragment implements
         // Inflate the layout for this fragment
         rootView = inflater.inflate(R.layout.fragment_home, container, false);
         init(rootView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
         showButton(play, ll_play);
+        // Obtain the FirebaseAnalytics instance.
+        mFirebaseAnalytics = FirebaseAnalytics.getInstance(getActivity());
         // Create the Google Api Client with access to the Play Games services
         mGoogleApiClient = new GoogleApiClient.Builder(getActivity())
                 .addConnectionCallbacks(this)
@@ -87,6 +97,7 @@ public class HomeFragment extends Fragment implements
                 editor.putInt("HighScore", Defs.HighScore);
                 editor.commit();
             } catch (NumberFormatException e) {
+                FirebaseCrash.report(e);
                 e.printStackTrace();
             }
         }
@@ -126,6 +137,7 @@ public class HomeFragment extends Fragment implements
                     Games.Achievements.unlock(mGoogleApiClient, String.valueOf(R.string.achievement_high_score_100));
             }
         } catch (Exception e) {
+            FirebaseCrash.report(e);
             e.printStackTrace();
         }
     }
@@ -133,6 +145,7 @@ public class HomeFragment extends Fragment implements
     private void init(View rootView) {
         play = rootView.findViewById(R.id.btn_play);
         gamerName = rootView.findViewById(R.id.gamer_name);
+        mAdView = rootView.findViewById(R.id.adView);
         highscoretv = rootView.findViewById(R.id.high_score_tv);
         dp = rootView.findViewById(R.id.profile_img);
         achivement = rootView.findViewById(R.id.btn_achievement);
@@ -215,10 +228,16 @@ public class HomeFragment extends Fragment implements
             gamerName.setText(name);
             ImageManager mgr = ImageManager.create(getActivity());
             mgr.loadImage(dp, photo);
+            Defs.gamerName = name;
         } else {
             gamerName.setText("Guest");
             dp.setImageDrawable(getResources().getDrawable(R.drawable.dp));
         }
+        Bundle fbundle = new Bundle();
+        fbundle.putString(FirebaseAnalytics.Param.ITEM_ID, photo.toString());
+        fbundle.putString(FirebaseAnalytics.Param.ITEM_NAME, name);
+        fbundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
+        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, fbundle);
     }
 
     @Override
@@ -346,6 +365,7 @@ public class HomeFragment extends Fragment implements
                             editor.putBoolean("playSound", sw.isChecked());
                             editor.commit();
                         } catch (Exception e) {
+                            FirebaseCrash.report(e);
                             e.printStackTrace();
                         }
                        if (sw.isChecked()) {
@@ -371,6 +391,7 @@ public class HomeFragment extends Fragment implements
                     i.putExtra(Intent.EXTRA_TEXT, sAux);
                     startActivity(Intent.createChooser(i, "Share this App"));
                 } catch(Exception e) {
+                    FirebaseCrash.report(e);
                     e.printStackTrace();
                 }
                 break;
@@ -424,6 +445,7 @@ public class HomeFragment extends Fragment implements
                     Games.signOut(mGoogleApiClient);
                     mGoogleApiClient.disconnect();
                 } catch (Exception e) {
+                    FirebaseCrash.report(e);
                     e.printStackTrace();
                 }
             }
